@@ -10,18 +10,23 @@ const TaskForm = ({fetchTasks}) => {
         description: ""
     })
 
-    const addNewTask = (event) => {
+    const addNewTask = async (event) => {
         event.preventDefault()
 
-        fetch("http://localhost:8000/tasks", {
+        const newTask = {
+            user_id: 1,
+            title: task.title,
+            description: task.description
+        }
+
+        await fetch("http://localhost:8000/tasks", {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(task)
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(newTask)
         }).then(fetchTasks)
 
         setTask({
+            user_id: 1,
             title: "",
             description: ""
         })
