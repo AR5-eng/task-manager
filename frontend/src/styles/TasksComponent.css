@@ -13,3 +13,8 @@
     display: flex;
     flex-direction: column-reverse;
 }
+
+hr {
+    width: 589.6px;
+    border: 0.5px solid rgb(150, 150, 150);
+}
